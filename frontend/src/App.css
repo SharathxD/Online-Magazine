@@ -1,0 +1,138 @@
+/* app.css */
+
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace; /* Use a monospace font for a technical feel */
+  background-color: #f4f4f4; /* Light gray background for a clean look */
+  color: #333; /* Darker text color for better readability */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  color: #1a1a1a; /* Darker headers for prominence */
+}
+
+input, button {
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+button {
+  background-color: #007bff; /* Blue background for buttons */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+}
+
+/* Modal Styles */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-gray-800 {
+  background-color: rgba(31, 41, 55, 0.9); /* Darker background for modal */
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem; /* Rounded corners */
+}
+
+.shadow-md {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Less padding on smaller screens */
+  }
+
+  button {
+    width: 100%; /* Full-width buttons on mobile */
+  }
+}
+/* Add this to your App.css */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #007bff; /* Spinner color */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto; /* Center spinner */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  background-color: #0056b3; /* Darker background */
+}
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+/* Initial state */
+.animated-element {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.parallax {
+  background-image: url('images/article6.jpg');
+  height: 500px;
+  background-attachment: fixed; /* Creates parallax effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
