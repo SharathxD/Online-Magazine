@@ -6,15 +6,15 @@ const SignupPage = () => {
   const [username, setUsername] = useState('');
   const [mailId, setMailId] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(''); // State for confirm password
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [confirmPassword, setConfirmPassword] = useState(''); 
+  const [showPassword, setShowPassword] = useState(false); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Check if passwords match
+   
     if (password !== confirmPassword) {
       setError('Passwords do not match!');
       return;
@@ -25,7 +25,7 @@ const SignupPage = () => {
     axios.post('http://localhost:5000/register', data)
       .then(response => {
         console.log('Signup successful:', response.data);
-        navigate('/login'); // Navigate to login page after successful signup
+        navigate('/login'); 
       })
       .catch(error => {
         console.error('Error during signup:', error);
@@ -34,7 +34,7 @@ const SignupPage = () => {
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Toggle password visibility
+    setShowPassword(!showPassword); 
   };
 
   return (
@@ -65,7 +65,7 @@ const SignupPage = () => {
           </div>
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'} // Toggle between password and text
+              type={showPassword ? 'text' : 'password'} 
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +82,7 @@ const SignupPage = () => {
           </div>
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'} // Toggle between password and text for confirm password
+              type={showPassword ? 'text' : 'password'} 
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
