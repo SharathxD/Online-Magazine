@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -16,8 +16,8 @@ const LoginPage = () => {
     try {
       const response = await axios.post('http://localhost:5000/login', data);
       console.log('Login successful:', response.data);
-      localStorage.setItem('userRole', response.data.role); // Assuming the backend returns the user role
-      navigate('/'); // Navigate to home page after successful login
+      localStorage.setItem('userRole', response.data.role); 
+      navigate('/'); 
     } catch (error) {
       console.error('Error during login:', error);
       setError('Invalid username/email or password. Please try again.');
@@ -25,7 +25,7 @@ const LoginPage = () => {
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Toggle between showing and hiding password
+    setShowPassword(!showPassword); 
   };
 
   return (
@@ -46,7 +46,7 @@ const LoginPage = () => {
           </div>
           <div className="relative">
             <input
-              type={showPassword ? 'text' : 'password'} // Toggle input type based on showPassword state
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
