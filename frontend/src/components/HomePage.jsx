@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import ArticleCard from './ArticleCard'; // Import the ArticleCard component
+import ArticleCard from './ArticleCard'; 
 import { Link, useNavigate } from 'react-router-dom';
-import useScrollAnimation from '../hooks/useScrollAnimation'; // Import the custom hook
-
+import useScrollAnimation from '../hooks/useScrollAnimation'; 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
-  const [menuOpen, setMenuOpen] = useState(false); // State for menu visibility
-  const containerRef = useRef(); // Create a ref for the container
+  const [menuOpen, setMenuOpen] = useState(false); 
+  const containerRef = useRef(); 
   const navigate = useNavigate();
-  const [role, setRole] = useState(''); // Store user role
-
-  useScrollAnimation(containerRef); // Apply the scroll animation to the container
+  const [role, setRole] = useState(''); 
+  useScrollAnimation(containerRef); 
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -25,30 +23,29 @@ const HomePage = () => {
 
     fetchArticles();
 
-    // Fetch the user role from localStorage
+   
     const storedRole = localStorage.getItem('userRole'); 
-    console.log(storedRole)// Assume you store the role in localStorage
+    console.log(storedRole)
     if (storedRole) {
-      setRole(storedRole); // Set role on page load
+      setRole(storedRole);
     } else {
       console.warn('User role not found in localStorage.');
     }
   }, []);
 
   const handleLogout = () => {
-    // Perform any logout logic here (e.g., clearing tokens)
-    localStorage.removeItem('userRole'); // Clear role or any user info
-    navigate('/login'); // Redirect to login page after logout
+    localStorage.removeItem('userRole'); 
+    navigate('/login'); 
   };
 
   const handleAddContent = () => {
     console.log('role in the function',role)
     if (role === 'admin') {
-      navigate('/admin'); // Redirect to AdminPage if admin
+      navigate('/admin'); 
     } else if (role === 'user') {
-      navigate('/UserContent'); // Redirect to UserContent if user
+      navigate('/UserContent'); 
     } else {
-      alert('Invalid role!'); // Fallback case for invalid role
+      alert('Invalid role!'); 
     }
   };
 
@@ -70,7 +67,7 @@ const HomePage = () => {
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10">
               <button
-                onClick={handleAddContent} // Call function to handle role-based navigation
+                onClick={handleAddContent} 
                 className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100"
               >
                 Add Content
