@@ -6,12 +6,12 @@ const Modal = ({ onClose }) => {
 
   const handleLoginClick = () => {
     onClose();
-    navigate('/login'); // Redirect to the login page
+    navigate('/login'); 
   };
 
   const handleSignupClick = () => {
     onClose();
-    navigate('/signup'); // Redirect to the signup page
+    navigate('/signup'); 
   };
 
   return (
