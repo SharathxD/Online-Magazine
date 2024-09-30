@@ -6,17 +6,17 @@ const UserContent = () => {
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
-  const [message, setMessage] = useState('');  // State for success/error messages
-  const [error, setError] = useState('');  // State for error messages
+  const [message, setMessage] = useState(''); 
+  const [error, setError] = useState('');  
 
-  // Handle file change
+
   const handleFileChange = (e) => setImage(e.target.files[0]);
 
-  // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create form data to send to the backend
+
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
@@ -24,16 +24,14 @@ const UserContent = () => {
     formData.append('image', image);
 
     try {
-      // Post request to submit content for admin approval
+
       const response = await axios.post('http://localhost:5000/user-content', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setMessage(response.data.message);  // Display success message
-      setError('');  // Clear any previous error
-
-      // Clear form fields after successful submission
+      setMessage(response.data.message);  
+      setError('');  
       setTitle('');
       setAuthor('');
       setContent('');
